@@ -1,4 +1,3 @@
-@import url(fonts/awesome/css/font-awesome.css);
 /* ==============================
    $Contents
    ==============================*/
@@ -6,7 +5,9 @@
 * Contents......................Here we are!
 * Reset.........................Reset defaults
 *   Fonts.......................Offline fonts
-*   Elements lib................Import Scss elements library   
+*   Elements lib................Import Scss elements library
+*   Layout tols.................Import Scss layout and graphing grid
+*   Grid system.................Import Scss fluid-gs mixin lib  
 * Mixins and vars...............Projects custom mixins and variables
 *                        
 * Headings and text.............Headings general styles
@@ -18,10 +19,6 @@
 *  Contact section..............Contact form, info with microformats
 *  Main footer..................Copyrights, to-top button styles
 * Media queries.................Media queries section
-*  Media max-width: 1000px
-*  Media max-width: 800px
-*  Media max-width: 640px
-*  Media max-width: 480px
 */
 /* ==============================
    $Reset
@@ -85,6 +82,8 @@ button, input[type=submit] {
 /* ==============================
    $Fonts
    ==============================*/
+/* @import "../../../global/fonts/lato/css/lato.css"; */
+/* @import "../../../global/fonts/awesome/css/font-awesome.css"; */
 /* ==============================
    $Elements lib
    ==============================*/
@@ -93,6 +92,43 @@ button, input[type=submit] {
    ===================================
    More info at https://github.com/orlovmax/sass-scss-elements
    ========================================================= */
+/* ==============================
+   $Layout tools
+   ==============================*/
+/* =========================================================
+   Pretty weird less mixins library but useful in css coding
+   More at https://github.com/orlovmax/layout-tools-scss
+   ========================================================= */
+/**
+* First mixin called regular-graph-paper, it creates lines similar to regular graphing paper using linear gradients above your markup, so you can see sizes of elements and margins between them.
+* There are next options: grid opacity, cell width, cell height, line color, background attachment,so you can set width and height of grid cells and line color or make grid fixed or scrollable.
+*
+*
+* Second mixin caled layout. It allows you to locate *.jpeg or *.png layout with some opacity above your markup for next css styling. 
+* Also this mixin optionally includes previous mixin - regular graphing paper.
+* There are bunch of options as layout url(by default it sets to "../img/layout.jpg", so it seems that your layout in img folder that on the same level as css folder with current style), layout width(100% by default, you should set to width of layout picture), layout opacity(by default sets to 0.5) and graphing paper grid options - grid opacity( 0 as default option), cell width(10px by default), cell height(10px by default), line color(#fff by default).
+* As you can see in this mixin grid is disabled by default, but you can turn it on by setting grid opacity to 0.5 for example
+* Also you can adjust cell sizes and line color as you need.
+*
+* I recomend you to mix up these mixins to html or body tag, and it'll create pseudo elements with desirable content.
+*
+*
+* Please notice that z-index of grid and layout sets to 999, so you're unable to test your links by clicking them. 
+*/
+/*regular-graph-paper mixin*/
+/* layout mixin*/
+/* ==============================
+   $Grid system
+   ==============================*/
+/* =========================================================
+   Fluid grid system for scss
+   ========================================================= */
+/* Clearfix hack */
+/*column mixin: there are four variables, column count for current element, total column count in row, horizontal gutter and vertical gutter
+By default it sets to 1 column of 12 total columns without gutters. Note, that gutter sets in percents, not pixels.*/
+/*row-column - column with clearfix, that allows to move it to the new line. Useful for nested grids. Has the same variables as column and in the same order*/
+/*offset mixin allows to push column left or right on some distance. Expected settings: distance-column count to move on, total column count in row, horizontal gutter like in other columns. 
+By default	it sets to 1 column of 12 total columns without gutters. Gutter units - percents*/
 /* ==============================
    $Mixins and vars
    ==============================*/
@@ -137,6 +173,7 @@ body {
   background-color: #fff;
   font-family: "Lato", sans-serif;
   color: #424242;
+  /*@include layout("../img/layout.jpg", 100%, .5,.1,10px,10px,#fff);*/
 }
 
 .container {
@@ -253,7 +290,7 @@ body {
   width: 100%;
   min-height: 455px;
   padding: 70px 0;
-  background: #323232 url("../img/promo-bg.jpg") 0 0 no-repeat;
+  background: #323232 url("../img/promo-bg.jpg") center 0 no-repeat;
   background-attachment: fixed;
   -webkit-background-size: cover;
   background-size: cover;
@@ -737,9 +774,6 @@ body {
 /* ==============================
    $Media queries
    ============================== */
-/* ==============================
-   $Media max-width 1000px
-   ==============================*/
 @media screen and (max-width: 1000px) {
   /* $Portfolio section */
   .portfolio__item {
@@ -754,9 +788,6 @@ body {
     margin: 0 20px 30px;
   }
 }
-/* ==============================
-   $Media max-width 800px
-   ==============================*/
 @media screen and (max-width: 800px) {
   /* $Main header */
   .main-header__logo {
@@ -801,9 +832,6 @@ body {
     height: 150px;
   }
 }
-/* ==============================
-   $Media max-width 640px
-   ==============================*/
 @media screen and (max-width: 640px) {
   /* $Main header */
   .main-header__logo h1 {
@@ -884,9 +912,6 @@ body {
     text-align: center;
   }
 }
-/* ==============================
-   $Media max-width 480px
-   ==============================*/
 @media screen and (max-width: 480px) {
   /* $Main header */
   .main-header {

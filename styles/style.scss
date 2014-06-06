@@ -5,7 +5,9 @@
 * Contents......................Here we are!
 * Reset.........................Reset defaults
 *   Fonts.......................Offline fonts
-*   Elements lib................Import Scss elements library   
+*   Elements lib................Import Scss elements library
+*   Layout tols.................Import Scss layout and graphing grid
+*   Grid system.................Import Scss fluid-gs mixin lib  
 * Mixins and vars...............Projects custom mixins and variables
 *                        
 * Headings and text.............Headings general styles
@@ -17,30 +19,38 @@
 *  Contact section..............Contact form, info with microformats
 *  Main footer..................Copyrights, to-top button styles
 * Media queries.................Media queries section
-*  Media max-width: 1000px
-*  Media max-width: 800px
-*  Media max-width: 640px
-*  Media max-width: 480px
 */
 
 
 /* ==============================
    $Reset
    ==============================*/
-@import "reset.scss";
+@import "../../../global/styles/reset.scss";
 
 
 /* ==============================
    $Fonts
    ==============================*/
-@import "fonts/awesome/css/font-awesome.css";
-
+/* @import "../../../global/fonts/lato/css/lato.css"; */
+/* @import "../../../global/fonts/awesome/css/font-awesome.css"; */
 
 
 /* ==============================
    $Elements lib
    ==============================*/
-@import "elements.scss"; 
+@import "../../../global/styles/elements.scss"; 
+
+
+/* ==============================
+   $Layout tools
+   ==============================*/
+@import "../../../global/styles/layout-tools.scss"; 
+
+
+/* ==============================
+   $Grid system
+   ==============================*/
+@import "../../../global/styles/fluid-gs.scss"; 
 
 
 /* ==============================
@@ -88,6 +98,7 @@ body{
 	background-color: #fff;
 	font-family: "Lato", sans-serif;
 	color: #424242;
+	/*@include layout("../img/layout.jpg", 100%, .5,.1,10px,10px,#fff);*/
 }
 .container {
 	max-width: 1024px;
@@ -180,7 +191,7 @@ body{
 		width: 100%;
 		min-height: 455px;
 		padding: 70px 0;
-		background: #323232 url("../img/promo-bg.jpg") 0 0 no-repeat;	
+		background: #323232 url("../img/promo-bg.jpg") center 0 no-repeat;	
 		background-attachment: fixed;
 		@include bg-cover;
 		text-align: center;
@@ -599,11 +610,6 @@ body{
    $Media queries
    ============================== */
 
-
-
-/* ==============================
-   $Media max-width 1000px
-   ==============================*/
 @media screen and  (max-width:1000px){
 
 /* $Portfolio section */ 
@@ -619,11 +625,6 @@ body{
 			}		
 }
 
-
-
-/* ==============================
-   $Media max-width 800px
-   ==============================*/
 @media screen and  (max-width:800px){
 
 /* $Main header */ 
@@ -663,10 +664,6 @@ body{
 }
 
 
-
-/* ==============================
-   $Media max-width 640px
-   ==============================*/
 @media screen and  (max-width:640px){
 
 /* $Main header */  
@@ -741,11 +738,6 @@ body{
 			}
 }
 
-
-
-/* ==============================
-   $Media max-width 480px
-   ==============================*/
 @media screen and (max-width:480px){
 
 /* $Main header */  

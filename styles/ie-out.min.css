@@ -1,0 +1,20 @@
+html{position:relative!important;width:100%!important;height:100%!important}
+body{position:relative!important;width:100%!important;height:100%!important;z-index:99998;overflow:hidden!important}
+.browser-msg{position:absolute;width:100%;height:100%;top:0;left:0;z-index:99999;background-color:#ecf0f1;overflow-x:hidden;overflow-y:auto;font-family:sans-serif;text-align:center}
+.browser-msg__title{margin:20px 0 30px 20px;font-size:60px;color:#34495e}
+.browser-msg__info{margin:10px 20px;font-size:20px;line-height:1.2;color:#7f8c8d}
+.browser-msg__sub{margin:10px 20px;font-size:30px;color:#34495e}
+.browser-msg__list{display:block;width:100%;margin:40px 0 20px}
+.browser-msg__item{display:inline;zoom:1;width:180px;height:300px;padding:10px;margin:0 10px 20px;border:1px solid #bdc3c7;vertical-align:top;cursor:pointer}
+.browser-msg__item:hover{background-color:#fff}
+.browser-msg__item a{display:block;position:relative;width:100%;height:100%;color:#2980b9;text-decoration:none;white-space:normal}
+.browser-msg__item a:hover{text-decoration:none}
+.browser-item__img{display:inline;zoom:1;width:125px;height:130px;background-image:url(../img/bro-sprite.png);cursor:pointer}
+.browser-item__img.chrome{background-position:0 0}
+.browser-item__img.firefox{background-position:-125px 0}
+.browser-item__img.safari{background-position:-250px 0}
+.browser-item__img.opera{background-position:-375px 0}
+.browser-item__img.ie{background-position:-500px 0}
+.browser-item__title{margin:5px 0 10px;font-size:20px}
+.browser-item__descr{margin-bottom:20px;font-size:15px;color:#7f8c8d;font-style:italic;text-align:left}
+.browser-item__note{position:absolute;width:100%;left:50%;margin-left:-50%;bottom:0;font-size:16px;color:#3498db;cursor:pointer}

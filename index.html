@@ -12,10 +12,12 @@
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 		<![endif]-->
-		<!--[if lt IE 8]><meta http-equiv="refresh" content="0; url=http://browsehappy.com" /><![endif]-->
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.min.css">
+        <link rel="stylesheet" href="styles/style.min.css">
+		<!--[if lt IE 8]>
+        	<link rel="stylesheet" href="styles/ie-out.min.css">
+		<![endif]-->
     </head>
     <body>	
 		<header class="main-header  js-header">
@@ -205,7 +207,57 @@ consequat.</p>
 				<span class="main-footer__copyright">&copy; Copyright 2013 Bak-One  |  One Page Flat Template</span>
 				<a href="#home" class="main-footer__gotop js-scroll">Go to top</a>
 			</div>
-		</footer>			
+		</footer>
+		<!--[if lt IE 8]>
+			<div class="browser-msg">
+				<h2 class="browser-msg__title">Houston we've had a problem</h2>
+				<p class="browser-msg__info">It looks like you’re using an insecure version of Internet Explorer.<br> Using an outdated browser makes your computer unsafe.</p>
+				<h3 class="browser-msg__sub">For the best experience on the web, please update your browser.</h3>
+				<ul class="browser-msg__list">
+					<li class="browser-msg__item">
+						<a href="http://www.google.com/chrome" title="Google Chrome">
+							<span class="browser-item__img chrome"></span>
+							<h2 class="browser-item__title">Google Chrome</h2>
+							<p class="browser-item__descr">Built for the modern web and designed to be fast in every possible way.</p>
+							<p class="browser-item__note">Visit official website for more info</p>
+						</a>
+					</li>
+					<li class="browser-msg__item">
+						<a href="http://www.firefox.com/" title="Mozilla Firefox">
+							<span class="browser-item__img firefox"></span>
+							<h2 class="browser-item__title">Mozilla Firefox</h2>
+							<p class="browser-item__descr">Committed to you, your privacy and an open Web.</p>
+							<p class="browser-item__note">Visit official website for more info</p>
+						</a>
+					</li>
+					<li class="browser-msg__item">
+						<a href="http://www.apple.com/safari/" title="Apple Safari">
+							<span class="browser-item__img safari"></span>
+							<h2 class="browser-item__title">Safari</h2>
+							<p class="browser-item__descr">The smartest way to surf. Wait less and browse more.</p>
+							<p class="browser-item__note">Visit official website for more info</p>
+						</a>
+					</li>
+					<li class="browser-msg__item">
+						<a href="http://www.opera.com/" title="Opera">
+							<span class="browser-item__img opera"></span>
+							<h2 class="browser-item__title">Opera</h2>
+							<p class="browser-item__descr">Made to discover. Get a better experience.</p>
+							<p class="browser-item__note">Visit official website for more info</p>
+						</a>
+					</li>
+					<li class="browser-msg__item">
+						<a href="http://windows.microsoft.com/ie" title="Microsoft Internet Explorer">
+							<span class="browser-item__img ie"></span>
+							<h2 class="browser-item__title">Internet Explorer</h2>
+							<p class="browser-item__descr">Fast and fluid. Stay safer as you browse.</p>
+							<p class="browser-item__note">Visit official website for more info</p>
+						</a>
+					</li>
+				</ul>
+				<p class="browser-msg__info">Thank you :)</p>
+			</div>
+		<![endif]-->				
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
 		<script src="js/assembled.min.js"></script>
