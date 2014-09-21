@@ -13,29 +13,10 @@ In reset.css most of elements `box-sizing` sets to `border-box`.
 
 Screenshots
 ---
-**Width 1440px (without scrollbar)**
+**You can see more screenshots [here](screenshots/)**
 
-![design studio responsive template 1440px](screenshots/design-studio_one-page-template_1440px.jpg)
-
----
-
-
-**Width 800px (without scrollbar)**
-
-![design studio responsive template 640px](screenshots/design-studio_one-page-template_800px.jpg)
+![Mockup demo](screenshots/pic.jpg)
 
 ---
 
-
-**Width 640px (without scrollbar)**
-
-![design studio responsive template 640px](screenshots/design-studio_one-page-template_640px.jpg)
-
----
-
-
-**Width 480px (without scrollbar)**
-
-![design studio responsive template 640px](screenshots/design-studio_one-page-template_480px.jpg)
-
----
+Product mockup created with [http://frame.lab25.co.uk/](http://frame.lab25.co.uk/)
