@@ -1,0 +1,99 @@
+/* =========================================================
+   Pretty weird scss mixins library but useful in css coding
+   More at https://github.com/orlovmax/layout-tools
+   ========================================================= */
+/**
+* First mixin called regular-graph-paper, it creates lines similar to regular graphing paper using linear gradients above your markup, so you can see sizes of elements and margins between them.
+* There are next options: grid opacity, cell width, cell height, line color, background attachment,so you can set width and height of grid cells and line color or make grid fixed or scrollable.
+*
+*
+* Second mixin caled layout. It allows you to locate *.jpeg or *.png layout with some opacity above your markup for next css styling. 
+* Also this mixin optionally includes previous mixin - regular graphing paper.
+* There are bunch of options as layout url(by default it sets to "../img/layout.jpg", so it seems that your layout in img folder that on the same level as css folder with current style), layout width(100% by default, you should set to width of layout picture), layout opacity(by default sets to 0.5) and graphing paper grid options - grid opacity( 0 as default option), cell width(10px by default), cell height(10px by default), line color(#fff by default).
+* As you can see in this mixin grid is disabled by default, but you can turn it on by setting grid opacity to 0.5 for example
+* Also you can adjust cell sizes and line color as you need.
+*
+* I recomend you to mix up these mixins to html or body tag, and it'll create pseudo elements with desirable content.
+*
+*
+* Please notice that z-index of grid and layout sets to 999, so you're unable to test your links by clicking them. 
+*/  
+
+
+/*regular-graph-paper mixin*/
+
+@mixin regular-graph-paper( $grid-opacity:1, $cell-width: 10px, $cell-height: 10px, $line-color: #fff){
+		
+	&:after{
+		content: ""; 	
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: 999;
+		background:		-webkit-linear-gradient(left, darken($line-color, 25%) 1px, transparent 2px),
+						 -webkit-linear-gradient(top, darken($line-color, 25%) 1px, transparent 2px),
+									 -webkit-linear-gradient(left, $line-color 0px, transparent 1px),
+									  -webkit-linear-gradient(top, $line-color 0px, transparent 1px);                              
+		background:        -moz-linear-gradient(left, darken($line-color, 25%) 1px, transparent 0px),
+							-moz-linear-gradient(top, darken($line-color, 25%) 1px, transparent 0px),
+										-moz-linear-gradient(left, $line-color 0px, transparent 1px),
+										 -moz-linear-gradient(top, $line-color 0px, transparent 1px);
+										 
+		background:			-ms-linear-gradient(left, darken($line-color, 25%) 1px, transparent 1px),
+							 -ms-linear-gradient(top, darken($line-color, 25%) 1px, transparent 1px),
+										 -ms-linear-gradient(left, $line-color 0px, transparent 1px),
+										  -ms-linear-gradient(top, $line-color 0px, transparent 1px);
+										  
+		background:			 -o-linear-gradient(left, darken($line-color, 25%) 1px, transparent 1px),
+							  -o-linear-gradient(top, darken($line-color, 25%) 1px, transparent 1px),
+										  -o-linear-gradient(left, $line-color 0px, transparent 1px),
+										   -o-linear-gradient(top, $line-color 0px, transparent 1px);
+										   
+		background:				linear-gradient(left, darken($line-color, 25%) 1px, transparent 1px),
+								 linear-gradient(top, darken($line-color, 25%) 1px, transparent 1px),
+											 linear-gradient(left, $line-color 0px, transparent 1px),
+											  linear-gradient(top, $line-color 0px, transparent 1px);
+											  
+		-webkit-background-size: $cell-width $cell-height,
+								 $cell-width $cell-height,
+								 $cell-width*5 $cell-height*5,
+								 $cell-width*5 $cell-height*5;
+		background-size:         $cell-width*5 $cell-height*5,
+								 $cell-width*5 $cell-height*5,
+								 $cell-width $cell-height,
+								 $cell-width $cell-height;
+								 
+		background-position: 1px 1px,
+							 1px 1px;
+							 
+		-webkit-opacity: $grid-opacity;
+		-khtml-opacity:  $grid-opacity;
+		-moz-opacity:    $grid-opacity;
+		opacity:         $grid-opacity;
+	}		
+}
+
+
+/* layout mixin*/
+@mixin layout($layout-url: "../img/layout.jpg", $layout-width:100%, $layout-opacity: .5, $grid-opacity:0, $cell-width:10px, $cell-height:10px, $line-color:#fff){
+	max-width: $layout-width;
+	margin: 0 auto;
+	
+	&:before{ 
+		content: url($layout-url); 
+		display: inline-block;	
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 100;
+		text-align: center;
+		-webkit-opacity: $layout-opacity;
+		-khtml-opacity:  $layout-opacity;
+		-moz-opacity:    $layout-opacity;
+		opacity:         $layout-opacity;	
+	}	
+	@include regular-graph-paper( $grid-opacity, $cell-width, $cell-height, $line-color);
+}

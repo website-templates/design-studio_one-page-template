@@ -1,0 +1,164 @@
+/* ==============================
+   $Contents
+   ==============================*/
+/**
+* Contents......................Here we are!
+* Reset.........................Some necessary reset styles
+* Variables.....................Inner vars
+* General styles................Main styles
+*/
+
+
+
+/* ==============================
+   $Reset styles
+   ==============================*/ 
+
+html, body{
+	position: relative !important;
+	width: 100% !important;
+	height: 100% !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+	body{
+		overflow: hidden !important;
+	}
+
+
+
+/* ==============================
+   $Variables
+   ==============================*/ 
+$dark-color: #4a4a4f;
+$lighten-color: lighten($dark-color, 20%);
+
+$bg-color: #ecf0f1;
+$bg-hover: lighten($bg-color, 5%);
+
+$link-color: #3498DB;
+
+
+/* ==============================
+   $General styles
+   ==============================*/
+
+		.browser-msg{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: 99999;
+			background-color: $bg-color;
+			overflow-x: hidden;
+			overflow-y: auto;
+			font-family: sans-serif;
+			text-align: center;
+		}
+			.browser-msg__title{
+				margin: 20px 0 30px 20px;
+				font-size: 60px;
+				font-weight: lighter;
+				color: $dark-color;
+				text-align: center;
+			}
+			.browser-msg__info{
+				margin: 10px 20px;
+				font-family: serif;
+				font-size: 24px;
+				line-height: 1.2;
+				color: $lighten-color;
+				text-align: center;
+			}
+			.browser-msg__sub{
+				margin: 10px 20px;
+				font-size: 30px;
+				font-weight: lighter;
+				color: $dark-color;
+				text-align: center;
+			}
+			.browser-msg__list{
+				display: block;
+				margin: 40px auto 20px;
+				text-align: center;
+			}
+				.browser-msg__item{
+					display: inline-block;
+					*display: inline;
+					zoom:1;
+					width: 180px;
+					height: 320px;
+					padding: 10px;
+					margin: 0 30px 30px 0;
+					border: 1px solid $lighten-color;
+					vertical-align: top;
+					cursor: pointer;
+				
+					&:hover{
+						background-color: $bg-hover;
+					}
+				
+					& a{
+						display: block;
+						position: relative;
+						width: 100%;
+						height: 100%;
+						color: $link-color;
+						text-decoration: none;
+						white-space: normal;
+					
+						&:hover{
+							text-decoration: none;
+						}
+					}	
+				}	
+					.browser-item__img{
+						display: inline-block;
+						*display: inline;
+						zoom:1;
+						width: 125px;
+						height: 130px;
+						background-image: url("../img/bro-sprite.png");
+						cursor: pointer;
+						text-align: center;
+											
+						&.chrome{
+							background-position: 0 0;
+						}				
+						&.firefox{
+							background-position: -125px 0;
+						}				
+						&.safari{
+							background-position: -250px 0;
+						}				
+						&.opera{
+							background-position: -375px 0;
+						}				
+						&.ie{
+							background-position: -500px 0;
+						}
+					}	
+					.browser-item__title{
+						margin: 5px 0 10px;
+						font-size: 20px;
+						text-align: center;
+					}	
+					.browser-item__descr{
+						margin-bottom: 20px;
+						font-size: 15px;
+						color: $lighten-color;
+						font-style: italic;
+						text-align: left;
+					}	
+					.browser-item__note{
+						position: absolute;
+						width: 100%;
+						left: 50%;
+						margin-left: -50%;
+						bottom: 0;
+						font-size: 16px;
+						color: $link-color;
+						cursor: pointer;
+						text-align: center;
+					}

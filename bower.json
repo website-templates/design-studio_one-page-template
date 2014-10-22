@@ -1,0 +1,20 @@
+{
+  "name": "grunt-boilerplate-bower",
+  "version": "1.0.0",
+  "authors": [
+    "Maxim Orlov <mail@orlovmax.com>"
+  ],
+  "description": "Bower components for grunt boilerplate",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orlovmax/grunt-boilerplate"
+  },
+  "bugs": {
+    "url": "https://github.com/orlovmax/grunt-boilerplate/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "latest"
+  }
+}
