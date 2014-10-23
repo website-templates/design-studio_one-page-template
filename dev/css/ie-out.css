@@ -16,9 +16,6 @@ html, body {
   height: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
-}
-
-body {
   overflow: hidden !important;
 }
 
@@ -29,21 +26,24 @@ body {
    $General styles
    ==============================*/
 .browser-msg {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 99999;
   background-color: #ecf0f1;
   overflow-x: hidden;
   overflow-y: auto;
-  font-family: sans-serif;
+  font-family: Tahoma, Verdana, Arial, sans-serif;
   text-align: center;
 }
 
 .browser-msg__title {
   margin: 20px 0 30px 20px;
+  font-family: Tahoma, Verdana, Arial, sans-serif;
   font-size: 60px;
   font-weight: lighter;
   color: #4a4a4f;
@@ -52,7 +52,7 @@ body {
 
 .browser-msg__info {
   margin: 10px 20px;
-  font-family: serif;
+  font-family: Georgia, Times, "Times New Roman", serif;
   font-size: 24px;
   line-height: 1.2;
   color: #7b7b84;
@@ -61,6 +61,7 @@ body {
 
 .browser-msg__sub {
   margin: 10px 20px;
+  font-family: Tahoma, Verdana, Arial, sans-serif;
   font-size: 30px;
   font-weight: lighter;
   color: #4a4a4f;
@@ -78,7 +79,7 @@ body {
   *display: inline;
   zoom: 1;
   width: 180px;
-  height: 320px;
+  height: 340px;
   padding: 10px;
   margin: 0 30px 30px 0;
   border: 1px solid #7b7b84;
@@ -93,7 +94,7 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  color: #3498DB;
+  color: #3498db;
   text-decoration: none;
   white-space: normal;
 }
@@ -129,13 +130,16 @@ body {
 
 .browser-item__title {
   margin: 5px 0 10px;
+  font-family: Tahoma, Verdana, Arial, sans-serif;
   font-size: 20px;
   text-align: center;
+  color: #3498db;
 }
 
 .browser-item__descr {
-  margin-bottom: 20px;
+  font-family: Tahoma, Verdana, Arial, sans-serif;
   font-size: 15px;
+  line-height: 1.2;
   color: #7b7b84;
   font-style: italic;
   text-align: left;
@@ -147,8 +151,10 @@ body {
   left: 50%;
   margin-left: -50%;
   bottom: 0;
+  font-family: Tahoma, Verdana, Arial, sans-serif;
   font-size: 16px;
-  color: #3498DB;
+  line-height: 1.2;
+  color: #3498db;
   cursor: pointer;
   text-align: center;
 }
