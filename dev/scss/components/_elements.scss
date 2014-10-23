@@ -6,6 +6,12 @@
 	outline: $width $line-type $color;
 }
 
+@mixin calc($property, $expression){
+	#{$property}: -webkit-calc(#{$expression});
+    #{$property}:    -moz-calc(#{$expression});
+    #{$property}:         calc(#{$expression});    
+}
+
 @mixin media($property, $value){
     @media screen and (#{$property}: #{$value}){
     	@content;
@@ -272,4 +278,20 @@
 	-ms-transition:     $property $duration $tfunction $delay;
 	-o-transition:      $property $duration $tfunction $delay;
 	transition:         $property $duration $tfunction $delay;
+}
+
+
+@mixin col-count($count: 1){
+	-webkit-column-count: $count;
+       -moz-column-count: $count;
+        -ms-column-count: $count;
+         -o-column-count: $count;
+            column-count: $count;
+}
+@mixin col-gap($gap: 0){
+	-webkit-column-gap: $gap;
+       -moz-column-gap: $gap;
+        -ms-column-gap: $gap;
+         -o-column-gap: $gap;
+            column-gap: $gap;
 }

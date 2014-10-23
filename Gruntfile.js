@@ -5,14 +5,12 @@ module.exports = function(grunt) {
         concat: {
           main: {
             files: [{
-              expand: true,
               src: ['dev/js/*.js', '!dev/js/assembled.js'],
               dest: 'dev/js/assembled.js'
             }]
           },
           head: {
             files: [{
-              expand: true,
               src: ['dev/js/head/*.js', '!dev/js/head/head.js'],
               dest: 'dev/js/head/head.js'
             }]
@@ -276,6 +274,11 @@ module.exports = function(grunt) {
 
       //Delete some dev code and references from files        
         preprocess : {
+          options: {
+            context : {
+              BUILD: true
+            }
+          },
           html : {
             src : [ 'dev/html/*.html' ],
             options: {
