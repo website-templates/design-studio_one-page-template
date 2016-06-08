@@ -1,0 +1,770 @@
+/* ==============================
+   $Contents
+   ==============================*/
+/**
+* Contents......................Here we are!
+* Reset.........................Reset defaults
+*   Fonts.......................Offline fonts
+*   Elements lib................Import Scss elements library
+*   Layout tols.................Import Scss layout and graphing grid
+*   Grid system.................Import Scss fluid-gs mixin lib
+* Annotation....................Annotation block for live examples (not for github)
+* Mixins and vars...............Projects custom mixins and variables
+*
+* Headings and text.............Headings general styles
+* General styles................Abstract styles
+*  Main header..................Header,logo,nav styles
+*  Promo section................Jumbotron styles
+*  Portfolio section............Recent works, buttons-filters styles
+*  About section................Team section styles
+*  Contact section..............Contact form, info with microformats
+*  Main footer..................Copyrights, to-top button styles
+* Media queries.................Media queries section
+*/
+
+
+/* ==============================
+   $Reset
+   ==============================*/
+@import "components/_reset.scss";
+
+
+/* ==============================
+   $Elements lib
+   ==============================*/
+@import "components/_elements.scss";
+
+
+/* ==============================
+   $Grid system
+   ==============================*/
+@import "components/_fluid-gs.scss";
+
+
+/* ==============================
+   $Annotation
+   ==============================*/
+@import "components/_annotation.scss";
+
+
+/* ==============================
+   $Mixins and vars
+   ==============================*/
+$greensea-color: #1bbc9b;
+
+
+
+/* ==============================
+   $Headings and text
+   ==============================*/
+
+h1{
+	font-size: 42px;
+	font-weight: lighter;
+}
+h2{
+	font-size: 26px;
+	font-weight: lighter;
+}
+h3{
+	font-size: 20px;
+	font-weight: lighter;
+}
+p {
+	font-size: 15px;
+	font-weight: lighter;
+	color: #909090;
+}
+a {
+	font-size: 20px;
+	text-decoration: none;
+}
+
+
+/* ==============================
+   $General styles
+   ==============================*/
+html, body{
+	width: 100%;
+	height: 100%;
+}
+body{
+	background-color: #fff;
+	font-family: "Lato", sans-serif;
+	color: #424242;
+}
+.container {
+	max-width: 1024px;
+	margin: 0 auto;
+	@include clearfix;
+}
+	%section__title{
+		font-size: 28px;
+		font-weight: normal;
+	}
+	%section__descr{
+		font-size: 14px;
+		font-weight: normal;
+	}
+	%common-btn{
+		background-color: $greensea-color;
+		font-size: 15px;
+		color: #fff;
+		text-transform: uppercase;
+		@include transition(all, .5s);
+
+		&:hover{
+			background-color: darken($greensea-color, 10%);
+		}
+	}
+/* ==============================
+   $Main header
+   ==============================*/
+	.main-header{
+		width: 100%;
+		min-height: 95px;
+		background-color: #fff;
+		@include clearfix;
+
+		&.is-fixed{
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 999;
+			@include box-shadow(0,2px,4px,0, #424242);
+		}
+	}
+		.main-header__logo{
+			float: left;
+			height: 50px;
+			margin: 25px 0 0 40px;
+			padding: 5px 0 0 65px;
+			background: url("../images/logo.jpg") 0 center no-repeat;
+
+			& h1{
+				font-size: 20px;
+				font-weight: bold;
+				text-transform: uppercase;
+			}
+			& span{
+				font-size: 14px;
+				text-transform: capitalize;
+			}
+		}
+		.main-header__nav{
+			float: right;
+			margin: 30px 55px 0 0;
+			background-color: #fff;
+
+			& li{
+				display: inline-block;
+				margin-left: 5px;
+			}
+		}
+			.nav__link{
+				display: inline-block;
+				font-size: 14px;
+				text-transform: uppercase;
+				padding: 10px;
+				@include transition(background-color, .2s);
+			}
+				.nav__link_menu{
+					color: #424242;
+
+					&:hover, &.is-active{
+						background-color: $greensea-color;
+						color: #fff;
+					}
+				}
+
+/* ==============================
+   $Promo section
+   ==============================*/
+	.promo{
+		width: 100%;
+		min-height: 455px;
+		padding: 70px 0;
+		background: #323232 url("../images/promo-bg.jpg") center 0 no-repeat;
+		background-attachment: fixed;
+		@include bg-cover;
+		text-align: center;
+		color:#fff;
+	}
+		.promo__title{
+			margin-bottom: 35px;
+			font-size: 55px;
+			text-transform: capitalize;
+
+			& span{
+				font-weight: bold;
+			}
+		}
+		.promo__descr{
+			max-width: 580px;
+			margin: 0 auto 50px;
+			font-size: 18px;
+			line-height: 1.1;
+			color: #fff;
+		}
+		.promo__btn{
+			display: block;
+			@include size(125px,35px);
+			margin: 0 auto 45px;
+			padding-top: 10px;
+
+			@extend %common-btn;
+		}
+		.promo__go-next{
+			display: block;
+			@include size(40px,40px);
+			margin: 0 auto;
+			background-color: #fff;
+			@include rounded(50%);
+			font-size: 0;
+			color: #323232;
+			@include transition(transform, .5s);
+
+			&:before{
+				font-size: 30px;
+				line-height: 40px;
+				font-family: FontAwesome;
+				content: "\f078";
+			}
+			&:hover{
+				@include scale(1.2);
+			}
+		}
+
+
+/* ==============================
+   $Portfolio section
+   ==============================*/
+	.portfolio{
+		width: 100%;
+		min-height: 680px;
+		padding-top: 50px;
+		background-color: #fff;
+		text-align: center;
+	}
+			.portfolio__title{
+				@extend %section__title;
+				margin-bottom: 10px;
+			}
+			.portfolio__descr{
+				@extend %section__descr;
+				margin-bottom: 40px;
+			}
+				.portfolio__filter{
+					& li{
+						display: inline-block;
+						margin: 0 10px;
+						cursor: pointer;
+					}
+				}
+					.portfolio-filter__btn{
+						display: inline-block;
+						font-size: 14px;
+						text-transform: uppercase;
+						padding: 10px;
+						color: #fff;
+						background-color: $greensea-color;
+						@include transition(background-color, .2s);
+
+						&:hover, &.is-selected{
+							background-color: darken($greensea-color, 10%);
+						}
+					}
+			.portfolio__content{
+				margin: 45px auto 60px;
+			}
+				.portfolio__item{
+					position: relative;
+					display: inline-block;
+					@include size(180px,180px);
+					margin: 0 30px 35px;
+					@include rounded(50%);
+					overflow: hidden;
+
+					&.is-hidden{
+						display: none;
+					}
+
+					&:hover .portfolio-item__caption{
+						@include opacity(1);
+						visibility: visible;
+					}
+				}
+					.portfolio-item__img{
+						display: inline-block;
+						height: 100%;
+						margin: 0 auto;
+					}
+					.portfolio-item__caption{
+						visibility: hidden;
+						position: absolute;
+						@include size(100%, 100%);
+						top: 0;
+						padding-top: 35px;
+						background-color: rgb(27, 188, 155);
+						background-color: rgba(27, 188, 155, .8);
+						@include rounded(50%);
+						color: #fff;
+						@include opacity(0);
+						@include transition(all, .5s);
+					}
+						.portfolio-item__title{
+							display: block;
+							font-size: 18px;
+							margin-bottom: 10px;
+
+							&:before{
+								content: "\f002";
+								display: block;
+								@include box-sizing(border-box);
+								@include size(40px, 40px);
+								@include rounded(50%);
+								margin: 0 auto 20px;
+								padding-top: 10px;
+								background-color: rgb(204,204,204);
+								background-color: rgba(0, 0, 0, .5);
+								font-family: FontAwesome;
+								text-align: center;
+							}
+						}
+						.portfolio-item__cat{
+							display: block;
+							font-size: 15px;
+
+						}
+
+/* ==============================
+   $About section
+   ==============================*/
+	.team{
+		width: 100%;
+		min-height: 645px;
+		padding-top: 55px;
+		background-color: #16a086;
+		text-align: center;
+	}
+			.team__title{
+				@extend %section__title;
+				margin-bottom: 10px;
+				color: #fff;
+				text-transform: capitalize;
+			}
+			.team__descr{
+				@extend %section__descr;
+				margin-bottom: 45px;
+				color: #fff;
+			}
+			.team__member{
+				display: inline-block;
+				position: relative;
+				width: 220px;
+				margin: 0 30px 30px;
+				background-color: #fff;
+
+				& img{
+					width: 100%;
+				}
+
+				&:hover .team-member__soc{
+					@include opacity(1);
+					visibility: visible;
+				}
+			}
+				.team-member__info{
+					display: block;
+					width: 100%;
+					height: 190px;
+					padding: 15px 10px;
+				}
+					.team-member__name{
+						margin-bottom: 5px;
+						font-size: 18px;
+					}
+					.team-member__role{
+						display: block;
+						margin-bottom: 20px;
+						font-size: 13px;
+						font-style: italic;
+						text-transform: capitalize;
+					}
+					.team-member__descr{
+						text-align: left;
+						line-height: 1.3;
+					}
+
+				.team-member__soc{
+					display: block;
+					position: absolute;
+					@include size(180px,50px);
+					top: 95px;
+					left: 50%;
+					margin-left: -90px;
+					background-color: rgb(22,160,134);
+					background-color: rgba(22,160,134,.8);
+					white-space: nowrap;
+					overflow: hidden;
+					@include opacity(0);
+					visibility: hidden;
+					@include transition(all, .5s);
+
+					& li{
+						display: inline-block;
+					}
+				}
+					.team-member__icon{
+						display: block;
+						@include size(45px,50px);
+						margin-left: -3px;
+						color: #fff;
+						@include transition(all, .3s);
+						font-size: 0;
+
+						&:hover{
+							color: #c1c1c1;
+						}
+
+						&:before{
+							display: block;
+							font-family: FontAwesome;
+							font-size: 30px;
+							line-height: 50px;
+						}
+						&.fb:before{
+							content:"\f09a";
+						}
+						&.tw:before{
+							content:"\f099";
+						}
+						&.gplus:before{
+							content:"\f0d5";
+						}
+						&.db:before{
+							content:"\f17d";
+						}
+					}
+
+/* ==============================
+   $Contact section
+   ==============================*/
+	.contact{
+		width: 100%;
+		min-height: 500px;
+		padding: 50px 0;
+		background-color: #ecf0f1;
+		text-align: left;
+	}
+		.contact__title{
+			@extend %section__title;
+			margin-bottom: 10px;
+			text-transform: capitalize;
+			text-align: center;
+		}
+		.contact__descr{
+			@extend %section__descr;
+			margin-bottom: 55px;
+			text-align: center;
+		}
+		.contact__form{
+			display: block;
+			float: left;
+			max-width: 465px;
+			margin: 0 15px 0 40px;
+
+			@include clearfix;
+		}
+			.contact-form__input{
+				display: inline-block;
+				@include size(220px, 45px);
+				margin-bottom: 20px;
+				padding-left: 12px;
+				border: 2px solid #bec3c7;
+				font-style: italic;
+				color: #999;
+
+				&:first-of-type{
+					margin-right: 20px;
+				}
+			}
+			.contact-form__tarea{
+				display: block;
+				@include box-sizing(border-box);
+				@include size(465px, 155px);
+				margin-bottom: 25px;
+				padding: 20px 0 0 12px;
+				border: 2px solid #bec3c7;
+				font-style: italic;
+				color: #999;
+
+				resize: none;
+			}
+			.contact-form__submit{
+				display: block;
+				float: right;
+				@include size(115px,35px);
+				@extend %common-btn;
+				text-align: center;
+			}
+		.contact__card{
+			display: inline-block;
+			@include size(230px, 150px);
+		}
+			.contact-card__title{
+				margin-bottom: 20px;
+				font-size: 14px;
+				line-height: .5;
+				text-transform: uppercase;
+			}
+			.contact-card__item{
+				position: relative;
+				font-size: 14px;
+				line-height: 24px;
+
+
+
+				&:before{
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					font-family: FontAwesome;
+				}
+				&.place{
+					padding-left: 15px;
+					margin-bottom: 15px;
+
+					&:before{
+						content:"\f041";
+					}
+				}
+				&.tel{
+					padding-left: 17px;
+					margin-bottom: 10px;
+
+					&:before{
+						content:"\f098";
+					}
+				}
+				&.fax:before{
+					content:"\f02f";
+				}
+				&.email{
+					display: inline-block;
+					padding-left: 20px;
+					font-size: 14px;
+					line-height: 24px;
+					color: #444;
+
+					&:before{
+						content:"\f003";
+					}
+					&:hover{
+						text-decoration: underline;
+					}
+				}
+			}
+
+/* ==============================
+   $Main footer
+   ==============================*/
+	.main-footer{
+		width: 100%;
+		min-height: 85px;
+		padding-bottom: 30px;
+		background-color: #2d3e50;
+	}
+		.main-footer__copyright{
+			display: inline-block;
+			margin: 35px 0 0 45px;
+			font-size: 14px;
+			color: #fff;
+		}
+		.main-footer__gotop{
+			display: block;
+			float: right;
+			@include size(45px,45px);
+			margin: 20px 45px 0 0;
+			@extend %common-btn;
+			font-size: 0;
+			text-align: center;
+
+			&:before{
+				font-size: 20px;
+				line-height: 45px;
+				font-family: FontAwesome;
+				content: "\f077";
+			}
+		}
+
+/* ==============================
+   $Media queries
+   ============================== */
+
+@media screen and  (max-width:1000px){
+
+/* $Portfolio section */
+				.portfolio__item{
+					@include size(170px,170px);
+					margin: 0 1.5% 35px;
+				}
+
+/* $About section */
+			.team__member{
+				width: 190px;
+				margin: 0 20px 30px;
+			}
+}
+
+@media screen and  (max-width:800px){
+
+/* $Main header */
+		.main-header__logo{
+			margin: 25px 0 0 10px;
+		}
+		.main-header__nav{
+			margin: 30px 10px 0 0;
+		}
+
+/* $Portfolio section */
+				.portfolio__item{
+					@include size(190px,190px);
+					margin: 0 5% 35px;
+				}
+
+/* $About section */
+			.team__member{
+				width: 180px;
+				margin: 0 10px 30px;
+			}
+
+/* $Contact section */
+		.contact__form{
+			max-width: 50%;
+			margin: 0 2% 0 8%;
+		}
+			.contact-form__input{
+				@include size(100%, 45px);
+			}
+			.contact-form__tarea{
+				@include size(100%, 155px);
+			}
+		.contact__card{
+			@include size(40%, 150px);
+		}
+}
+
+
+@media screen and  (max-width:640px){
+
+/* $Main header */
+		.main-header__logo{
+
+			& h1{
+				display: none;
+			}
+			& span{
+				display: none;
+			}
+		}
+		.main-header__nav{
+
+			& li{
+				margin-left: 0;
+			}
+		}
+/* $Portfolio section */
+	.portfolio{
+		padding: 50px 10px;
+	}
+				.portfolio__filter{
+					& li{
+						margin: 0 5px;
+					}
+				}
+
+/* $About section */
+	.team{
+		padding: 55px 10px;
+	}
+			.team__member{
+				display: block;
+				width: 260px;
+				margin: 0 auto 30px;
+			}
+				.team-member__info{
+					height: auto;
+				}
+					.team-member__descr{
+						display: none;
+					}
+				.team-member__soc{
+					@include size(260px,50px);
+					top: 220px;
+					margin-left: -130px;
+				}
+
+/* $Contact section */
+	.contact{
+		padding: 50px 10px;
+	}
+		.contact__form{
+			float: none;
+			max-width: 90%;
+			margin: 0 auto;
+		}
+			.contact-form__input{
+				@include size(100%, 45px);
+			}
+			.contact-form__tarea{
+				@include size(100%, 155px);
+			}
+		.contact__card{
+			display: block;
+			@include size(230px, 150px);
+			margin: 20px auto;
+		}
+			.contact-card__title{
+				text-align: center;
+			}
+}
+
+@media screen and (max-width:480px){
+
+/* $Main header */
+	.main-header{
+		min-height: 50px;
+	}
+		.main-header__logo{
+			display: none;
+		}
+		.main-header__nav{
+			float: none;
+			margin: 10px auto;
+			text-align: center;
+			& li{
+				margin-left: 0;
+			}
+		}
+/* $Portfolio section */
+				.portfolio__filter{
+					& li{
+						display: block;
+					}
+				}
+/* $Main footer */
+	.main-footer{
+		padding: 0 10px 30px;
+		text-align: center;
+	}
+		.main-footer__copyright{
+			margin: 35px auto 0;
+		}
+		.main-footer__gotop{
+			float: none;
+			@include size(100%,45px);
+			margin: 20px auto 0;
+		}
+}

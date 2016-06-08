@@ -1,19 +1,6 @@
 {
-  "name": "grunt-boilerplate-bower",
-  "version": "1.0.0",
-  "authors": [
-    "Maxim Orlov <mail@orlovmax.com>"
-  ],
-  "description": "Bower components for grunt boilerplate",
-  "main": "Gruntfile.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/orlovmax/grunt-boilerplate"
-  },
-  "bugs": {
-    "url": "https://github.com/orlovmax/grunt-boilerplate/issues"
-  },
-  "license": "MIT",
+  "name": "synt-general-template",
+  "description": "General project template based on Grunt/Gulp task runners",
   "dependencies": {
     "jquery": "1.11.1"
   }

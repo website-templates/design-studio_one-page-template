@@ -1,0 +1,23 @@
+{
+	"site": {
+		"lang": "en",
+		"title": "Design studio template",
+		"titleDelim": " | ",
+		"description": "Free charity website template",
+		"keywords": "html template, theme, freebie, opensource",
+		"url": "http://website-templates.github.io/design-studio_one-page-template"
+	},
+	"modules": {
+		"googleFonts": "https://fonts.googleapis.com/css?family=Lato:400,300,700",
+		"bodyJs": true,
+		"headJs": false,
+		"customCss": true,
+		"noscriptCss": false,
+		"twitterCard": false,
+		"openGraph": false
+	},
+	"links": {
+		"twitterCardCreator": "===twittercard-creator-account===",
+		"twitterCardAccount": "===twittercard-main-account==="
+	}
+}

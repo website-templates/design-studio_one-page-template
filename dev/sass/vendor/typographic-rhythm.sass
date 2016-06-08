@@ -1,0 +1,255 @@
+// =========================================================
+// Typographic vertical rhythm for sass
+// =========================================================
+
+//////////////////////////////////////// VARIABLES
+
+// $tr_level-factor - means exponent number of repeated multiplication of the scale factor (number >= 0 or 'auto')
+// It relates with scale of different text elements and defines how should one element should be bigger than common text
+// $tr_base-font-size - in general this is the font size of common text in paragraph (in px)
+// $tr_base-line-height - line height of common text in paragraph (number >= 1)
+// $tr_scale-factor - defines scaling proportion of elements (number > 1)
+// $tr_top-space - type of the element's top space (string, could be 'margin', 'padding' or 'none')
+// $tr_bottom-space - type of the element's bottom space (string, could be 'margin', 'padding' or 'none')
+
+// Default settings
+$tr_level-factor: 'auto'
+$tr_base-font-size: 20px
+$tr_base-line-height: 1.4
+$tr_scale-factor: 1.5
+$tr_top-space: 'margin'
+$tr_bottom-space: 'margin'
+
+//////////////////////////////////////// INTERNAL FUNCTIONS
+
+// Exponent https://gist.github.com/scottkellum/1160816
+@function _exp($base, $exponent)
+	$value: $base
+
+	@if $exponent > 1
+		@for $i from 2 through $exponent
+			$value: $value * $base
+
+	@if $exponent < 1
+		@for $i from 0 through -$exponent
+			$value: $value / $base
+
+	@return $value
+
+
+// Square root http://www.antimath.info/css/sass-sqrt-function
+@function _sqrt($r)
+	$x0: 1
+	$x1: $x0
+
+	@for $i from 1 through 10
+		$x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0)
+		$x0: $x1
+
+	@return $x1
+
+
+//////////////////////////////////////// TYPOGRAPHYC RHYTHM MIXIN
+
+=typographic-rhythm($level: $tr_level-factor, $base-fz: $tr_base-font-size, $lh: $tr_base-line-height, $scale: $tr_scale-factor, $top: $tr_top-space, $bottom: $tr_bottom-space)
+
+	// Validate settings
+	@if $lh < 1
+		@error 'Base line height needs to be greater than 1'
+
+	@if $scale <= 1
+		@error 'Scale factor needs to be greater than 1'
+
+	// Init version works only with pixels as basic units and unitless line-height
+	@if unit($base-fz) != 'px'
+		@error 'Base font size units should be specified in px instead of current `#{unit($base-fz)}`'
+	@if unit($lh) != ''
+		@error 'Base line-height should be specified as a number without units instead of current `#{unit($base-lh)}`'
+
+
+	// Define some variables and do common math
+	$font-size: null
+	$line-height: null
+	$space-top: null
+	$base-lh: round($base-fz * ($lh))
+
+	// Magick starts here! Auto levels feature - completely pre-defined settings that depend on the element to which mixin was applied
+	@if $level == 'auto'
+		// Kind of trick to get parent's element name
+		$parent: inspect(#{&})
+
+		// Compute some vaiables for different elements
+		@if str-index($parent, 'h1') != null
+			$font-size: round($base-fz * _exp($scale, 3))
+			$space-top: $base-lh * 2
+
+		@else if str-index($parent, 'h2') != null
+			$font-size: round($base-fz * _exp($scale, 2))
+			$space-top: $base-lh * 2
+
+		@else if str-index($parent, 'h3') != null
+			$font-size: round($base-fz * _exp($scale, 1))
+			$space-top: $base-lh
+
+		@else if str-index($parent, 'h4') != null
+			$font-size: round($base-fz * _sqrt($scale))
+			$space-top: $base-lh
+
+		@else if str-index($parent, 'h5') != null
+			$font-size: round($base-fz / _sqrt($scale))
+			$space-top: $base-lh
+
+		@else if str-index($parent, 'h6') != null
+			$font-size: round($base-fz / _exp($scale, 1))
+			$space-top: $base-lh
+
+		@else
+			$font-size: $base-fz
+			$space-top: $base-lh
+
+		$line-height: $base-lh * ceil($font-size / $base-lh)
+
+	@else if $level == 0
+		$font-size: $base-fz
+		$line-height: $base-lh
+		$space-top: $base-lh
+
+	@else if $level > 1
+		$font-size: round($base-fz * _exp($scale, $level))
+		$line-height: $base-lh * ceil($font-size / $base-lh)
+		$space-top: $base-lh * 2
+
+	@else
+		$font-size: round($base-fz * _exp($scale, $level))
+		$line-height: $base-lh * ceil($font-size / $base-lh)
+		$space-top: $base-lh
+
+
+	// Apply computed variables to the element
+	font-size: $font-size
+	line-height: $line-height
+
+	// Define the way for adding space before and after element
+	@if $top == 'margin'
+		margin-top: $space-top
+		padding-top: 0
+
+	@else if $top == 'padding'
+		margin-top: 0
+		padding-top: $space-top
+
+	@else
+		margin-top: 0
+		padding-top: 0
+
+
+	@if $bottom == 'margin'
+		margin-bottom: $base-lh
+		padding-bottom: 0
+
+	@else if $bottom == 'padding'
+		margin-bottom: 0
+		padding-bottom: $base-lh
+
+	@else
+		margin-bottom: 0
+		padding-bottom: 0
+
+
+//////////////////////////////////////// TYPOGRAPHYC SPACE MIXIN
+
+=typographic-space($top: $tr_top-space, $bottom: $tr_bottom-space, $level: $tr_level-factor, $base-fz: $tr_base-font-size, $lh: $tr_base-line-height)
+	// Validate settings
+	@if $lh < 1
+		@error 'Base line height needs to be greater than 1'
+
+	@if unit($base-fz) != 'px'
+		@error 'Base font size units should be specified in px instead of current `#{unit($base-fz)}`'
+
+	@if unit($lh) != ''
+		@error 'Base line-height should be specified as a number without units instead of current `#{unit($base-lh)}`'
+
+
+	// Define some variables and do common math
+	$font-size: null
+	$line-height: null
+	$space-top: null
+	$base-lh: round($base-fz * ($lh))
+
+	@if $level == 'auto'
+		// Kind of trick to get parent's element name
+		$parent: inspect(#{&})
+
+		// Compute some vaiables for different elements
+		@if str-index($parent, 'h1') != null
+			$space-top: $base-lh * 2
+
+		@else if str-index($parent, 'h2') != null
+			$space-top: $base-lh * 2
+
+		@else
+			$space-top: $base-lh
+
+	@else if $level == 0
+		$space-top: $base-lh
+
+	@else if $level > 1
+		$space-top: $base-lh * 2
+
+	@else
+		$space-top: $base-lh
+
+
+	// Define the way for adding space before and after element
+	@if $top == 'margin'
+		margin-top: $space-top
+		padding-top: 0
+
+	@else if $top == 'padding'
+		margin-top: 0
+		padding-top: $space-top
+
+	@else
+		margin-top: 0
+		padding-top: 0
+
+
+	@if $bottom == 'margin'
+		margin-bottom: $base-lh
+		padding-bottom: 0
+
+	@else if $bottom == 'padding'
+		margin-bottom: 0
+		padding-bottom: $base-lh
+
+	@else
+		margin-bottom: 0
+		padding-bottom: 0
+
+
+//////////////////////////////////////// GENERATED VERTICAL RHYTHM
+
+// h1
+// 	+typographic-rhythm()
+
+// h2
+// 	+typographic-rhythm()
+
+// h3
+// 	+typographic-rhythm()
+
+// h4
+// 	+typographic-rhythm()
+
+// h5
+// 	+typographic-rhythm()
+
+// h6
+// 	+typographic-rhythm()
+
+// p, ul, ol, table, blockquote, a
+// 	+typographic-rhythm()
+
+// ul ul, ol ol, ul ol, ol ul
+// 	margin-top: 0
+// 	margin-bottom: 0
