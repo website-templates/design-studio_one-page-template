@@ -5,19 +5,24 @@
 // CONTENTS.............................Here we are!
 //
 // VENDOR
-//   $Grid system........................Import fluid gs
-//   $Typographic rhythm.................Import vertical rhythm mixin
+//   $Grid system.......................Import fluid gs
+//   $Typographic rhythm................Import vertical rhythm mixin
 //
-// HELPERS...............................Variables, mixins, elements
-//   $Mixins.............................Site mixins
-//   $Variables..........................Settings and variables
-//   $Fonts..............................Offline and online fonts
-//   $Reset..............................Reset defaults
-//   $Base...............................Some general styles
-//   $Sprite.............................Spite mixin
+// HELPERS..............................Variables, mixins, elements
+//   $Mixins............................Site mixins
+//   $Variables.........................Settings and variables
+//   $Fonts.............................Offline and online fonts
+//   $Reset.............................Reset defaults
+//   $Base..............................Some general styles
+//   $Sprite............................Spite mixin
 //
 // BLOCKS...............................Page components
-//   $Block name........................
+//   $Contact section...................
+//   $Page header.......................
+//   $Page footer.......................
+//   $Portfolio section.................
+//   $Promo section.....................
+//   $Team section......................
 
 
 ////////////////////////////////////////
@@ -26,9 +31,6 @@
 
 // $Grid system
 @import vendor/gs
-
-// $Typographic rhythm
-@import vendor/typographic-rhythm
 
 
 ////////////////////////////////////////
@@ -63,4 +65,21 @@
 /// $IMPORT
 ////////////////////////////////////////
 
-@import import/screen.scss
+// $Contact section
+@import blocks/contact
+
+// $Page header
+@import blocks/page-header
+
+// $Page footer
+@import blocks/page-footer
+
+// $Portfolio section
+@import blocks/portfolio
+
+// $Promo section
+@import blocks/promo
+
+// $Team section
+@import blocks/team
+
