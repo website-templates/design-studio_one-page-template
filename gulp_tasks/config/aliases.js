@@ -14,13 +14,15 @@ gulp.task('start', function() {
 // Dev task with static server
 gulp.task('dev', function() {
 	runSequence(
+		// 'coffee:main',
 		'rigger:main',
 		'sass:main',
+		// 'stylus:main',
 		'postcss:dev',
 		'cmq:main',
 		'pug:main',
 		'sync:helpers',
-		'sync:fonts',
+		// 'sync:fonts',
 		'sync:images',
 		'browserSync:server',
 		'watch'
@@ -41,13 +43,15 @@ gulp.task('build', function() {
 // Regenerate and build project by running all tasks
 gulp.task('rebuild', function() {
 	runSequence(
+		// 'coffee:main',
 		'rigger:main',
 		'sass:main',
+		// 'stylus:main',
 		'postcss:dev',
 		'cmq:main',
 		'pug:main',
 		'sync:helpers',
-		'sync:fonts',
+		// 'sync:fonts',
 		'sync:images',
 		'imagemin:main',
 		'uglify:main',
