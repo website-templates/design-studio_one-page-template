@@ -1,4 +1,4 @@
-# Design studio one page template
+# Design studio one page template - ARCHIVED
 
 Flat and responsive website template, designed by [cssauthor](http://www.cssauthor.com/free-charity-website-template-psd/) and coded by [Maxim Orlov](https://github.com/orlovmax). 
 
