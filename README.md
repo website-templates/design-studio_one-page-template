@@ -166,4 +166,4 @@ Grunt: `gulp server`
 This project uses BrowserSync as static server with enabled and configured live reload option.
 
 ## License
-[MIT](http://opensource.org/licenses/MIT)
+[MIT](https://github.com/website-templates/design-studio_one-page-template/blob/master/LICENSE.md)
