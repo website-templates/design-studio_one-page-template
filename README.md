@@ -29,8 +29,8 @@ Product mockup created with [http://frame.lab25.co.uk/](http://frame.lab25.co.uk
 ├── README.md
 ├── automation.sh
 |
-├── gulp_tasks/                            * gulp tasks
-|   ├── config/                            * gulp tasks config
+├── gulp_tasks/                                * gulp tasks
+|   ├── config/                                * gulp tasks config
 │   |	├── paths.js
 │   |	├── settings.js
 │   |	└── aliases.js
@@ -119,7 +119,7 @@ Dev task with static server.
 Grunt: `gulp dev`
 
 * Concatenate javascripts
-* Compile Stylus stylesheets
+* Compile Sass stylesheets
 * Add vendor prefixes in css
 * Combine media queries in css files
 * Compile Pug templates
@@ -145,7 +145,7 @@ Regenerate and build project by running all tasks.
 Grunt: `gulp rebuild`
 
 * Concatenate javascripts
-* Compile Stylus stylesheets
+* Compile Sass stylesheets
 * Add vendor prefixes in css
 * Combine media queries in css files
 * Compile Pug templates
