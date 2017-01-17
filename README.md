@@ -104,11 +104,11 @@ This boilerplate use Pug templates with external data configs.
 Main settings can be found in `dev/data/config.json` file. And they're available for usage in templates with `config.key-name`
 
 ## Tasks
-Here comes groups of grunt and gulp tasks with some explanations
+Here comes groups of gulp tasks with some explanations
 
 #### Start 
 Install bower dependencies and place them to dev folders.
-Grunt: `gulp start`
+Gulp: `gulp start`
 
 * Install bower components
 * Copy bower components to dev folder
@@ -116,7 +116,7 @@ Grunt: `gulp start`
 
 #### Dev
 Dev task with static server.
-Grunt: `gulp dev`
+Gulp: `gulp dev`
 
 * Concatenate javascripts
 * Compile Sass stylesheets
@@ -131,7 +131,7 @@ Grunt: `gulp dev`
 
 #### Build 
 Build task.
-Grunt: `gulp build`
+Gulp: `gulp build`
 
 * Minify images
 * Minify javascript files
@@ -142,7 +142,7 @@ Grunt: `gulp build`
 
 #### Rebuild 
 Regenerate and build project by running all tasks.
-Grunt: `gulp rebuild`
+Gulp: `gulp rebuild`
 
 * Concatenate javascripts
 * Compile Sass stylesheets
@@ -158,7 +158,7 @@ Grunt: `gulp rebuild`
 
 #### Server 
 Run server without watching for changes.
-Grunt: `gulp server`
+Gulp: `gulp server`
 
 * Run BrowserSync static server
 
