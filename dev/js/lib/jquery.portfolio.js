@@ -1,4 +1,4 @@
-/* 
+/*
  * portfolio filter script to 'mix' items
 */
 
@@ -12,7 +12,7 @@
 
     function MixFilter( element, options ) {
         this.options = $.extend( {}, defaults, options) ;
-        this.element = element;     
+        this.element = element;
         this.init();
     }
 
@@ -24,26 +24,26 @@
             $filterSelected = $("." + this.options.filterSelected);
 
         $filterLink.on('click', function(){
-        	if (!$(this).hasClass("is-selected")) {
-				$filterLink.removeClass('is-selected');
-				$(this).addClass('is-selected');
-        		var filterVal = $(this).data("filter").toLowerCase();
+          if (!$(this).hasClass("is-selected")) {
+        $filterLink.removeClass('is-selected');
+        $(this).addClass('is-selected');
+            var filterVal = $(this).data("filter").toLowerCase();
 
-        		$item.each(function () {
-					var itemVal = $(this).data("cat").toLowerCase();
-					if (!$(this).is("[data-cat*=" + filterVal + "]")) {
-						$(this).addClass('is-hidden');
-					} else {
-						$(this).removeClass('is-hidden');
-					}
-				});
-        	}
-        	return false;
+            $item.each(function () {
+          var itemVal = $(this).data("cat").toLowerCase();
+          if (!$(this).is("[data-cat*=" + filterVal + "]")) {
+            $(this).addClass('is-hidden');
+          } else {
+            $(this).removeClass('is-hidden');
+          }
+        });
+          }
+          return false;
         });
     };
 
     $.fn.mixFilter = function ( options ) {
-        return this.each(function () {          
+        return this.each(function () {
             new MixFilter( this, options );
         });
     };
@@ -51,37 +51,3 @@
 })( jQuery, window, document );
 
 $(".js-portfolio").mixFilter();
-
-
-
-
-
-
-
-
-
-
-
-//portfolio filter script to 'mix' items
-// $(function () {
-// 	'use strict';
-// 	var filterLink = $('.js-filter');
-//     filterLink.on("click", function (e) {
-// 		if (!$(this).hasClass("is-selected")) {
-// 			filterLink.removeClass('is-selected');
-// 			$(this).addClass('is-selected');
-
-// 			var filterVal = $(this).data("filter").toLowerCase();
-
-// 			$('.js-item').each(function () {
-// 				var itemVal = $(this).data("cat").toLowerCase();
-// 				if (!$(this).is("[data-cat*=" + filterVal + "]")) {
-// 					$(this).addClass('is-hidden', 500);
-// 				} else {
-// 					$(this).removeClass('is-hidden', 500);
-// 				}
-// 			});
-// 		}
-// 		return false;
-//     });
-// });

@@ -1,5 +1,5 @@
-/* 
- * navigation script: sticky nav, anchor smooth scrolling, selecting current nav item 
+/*
+ * navigation script: sticky nav, anchor smooth scrolling, selecting current nav item
 */
 
 ;(function ( $, window, document, undefined ) {
@@ -15,7 +15,7 @@
 
     function NavKit( element, options ) {
         this.options = $.extend( {}, defaults, options) ;
-        this.element = element;     
+        this.element = element;
         this.init();
     }
 
@@ -32,21 +32,21 @@
 
         $(window).scroll($.proxy(function () {
             var topScroll = $(window).scrollTop();
-    
+
             if (topScroll > navTopOffset) {
                 $header.addClass(this.options.fixedHeader);
                 $jumbo.addClass(this.options.jumboScroll);
-    
+
             } else {
                 $header.removeClass(this.options.fixedHeader);
                 $jumbo.removeClass(this.options.jumboScroll);
             }
-        }, this)); 
+        }, this));
 
-        // Smooth anchor scroll, targeted to our nav anchors 
+        // Smooth anchor scroll, targeted to our nav anchors
         // Actually this thing was modified on csstricks
         $navAnchor.click(function () {
-            if (location.pathname.replace(/^\//, "") === this.pathname.replace(/^\//, "") && 
+            if (location.pathname.replace(/^\//, "") === this.pathname.replace(/^\//, "") &&
                 location.hostname === this.hostname) {
 
                 var target = $(this.hash);
@@ -104,7 +104,7 @@
     };
 
     $.fn.navKit = function ( options ) {
-        return this.each(function () {          
+        return this.each(function () {
             new NavKit( this, options );
         });
     };
